@@ -1,0 +1,44 @@
+<p>list-personajes works!</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>      
+      <th scope="col">Nombre</th>
+      <th scope="col">Género</th>
+      <th scope="col">Especie</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Imagen</th> <!-- Nueva columna para la imagen -->
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let personaje of personajes; let i = index">
+      <th scope="row">{{ i + 1 }}</th>      
+      <td>{{ personaje.name }}</td>
+      <td>{{ personaje.gender }}</td>
+      <td>{{ personaje.species }}</td>
+      <td>{{ personaje.status }}</td>
+      <td>
+        <img [src]="personaje.image" class="img-thumbnail" width="50" alt="Imagen del personaje">
+      </td> <!-- Columna de imagen añadida -->
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button (click)="guardar(personaje)" type="button" class="btn btn-secondary">Agregar</button>
+          <button (click)="editarPersonaje(personaje.id)" type="button" class="btn btn-secondary">Editar</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Configuración del Infinite Scroll -->
+<div
+  *ngIf="hasMoreData"
+  infiniteScroll
+  [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollUpDistance]="scrollUpDistance"
+  (scrolled)="onScroll()"
+  [infiniteScrollDisabled]="!hasMoreData"
+  class="infinite-scroll-container"
+></div>

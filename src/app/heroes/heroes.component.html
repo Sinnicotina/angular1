@@ -1,0 +1,42 @@
+<h2>Lista Heroes</h2>
+<button class="btn btn-light" (click)="NuevoHeroe()">
+  Nuevo Heroe
+</button>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+     
+      <th scope="col">Nombre</th>
+   
+      <th scope="col">Img</th>
+      
+      <th scope="col">casa</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heroe of heroes; let i = index" (click)="EditarHeroe(heroe._id)">
+      <th scope="row">{{ i + 1 }}</th>
+     
+      <td>{{ heroe.nombre }}</td>
+      
+      <td>
+        <img [src]="heroe.img" class="img-thumbnail" width="100" alt="Imagen del personaje">
+      </td>
+      
+      <td>{{ heroe.casa }}</td>
+
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Configuración del Infinite Scroll -->
+<div *ngIf="hasMoreData" infiniteScroll [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollUpDistance]="scrollDistance" (scrolled)="onScroll()" [infiniteScrollDisabled]="!hasMoreData"
+  class="infinite-scroll-container"></div>

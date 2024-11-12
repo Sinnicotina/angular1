@@ -1,0 +1,23 @@
+<p>episodios works!</p>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha Lanzamiento</th>
+        <th scope="col">Episodio</th>
+        <th scope="col">Personajes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let epi of episodios; ; let i = index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{epi.name}}</td>
+        <td>{{epi.air_date}}</td>
+        <td>{{epi.episode}}</td>
+        <td>{{epi.characters.length}}</td>
+      </tr>
+      
+    </tbody>
+  </table>

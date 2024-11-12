@@ -1,0 +1,23 @@
+<p>ubicacion works!</p>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Localizacion</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Dimension</th>
+        <th scope="col">Residentes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loc of  locations; ; let i = index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{loc.name}}</td>
+        <td>{{loc.type}}</td>
+        <td>{{loc.dimension}}</td>
+        <td>{{loc.residents.length}}</td>
+      </tr>
+      
+    </tbody>
+  </table>

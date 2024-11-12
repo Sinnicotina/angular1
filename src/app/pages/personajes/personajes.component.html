@@ -1,0 +1,29 @@
+<div class="container text-center">
+
+  <div class="row align-items-start">
+
+    <div class="col" *ngFor="let personaje of personajes">
+      
+      <div class="card" style="width: 18rem">
+        <img src="{{personaje.image}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ personaje.name }}</h5>
+          <p class="card-text">
+            Sexo: {{personaje.gender}} - Especie: {{personaje.species}}
+            - Status: {{personaje.status}} 
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mostrar mensaje de fin de datos -->
+<div *ngIf="!hasMoreData">
+  <p>No hay más personajes para cargar.</p>
+</div>
+
+<!-- Configuración del Infinite Scroll -->
+
+

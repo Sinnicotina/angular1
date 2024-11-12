@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Personajes Guardados Localmente</h2>
+
+  <!-- Formulario para añadir nuevo personaje por ID -->
+  <div class="form-group mb-3">
+    <label for="personajeIdInput">ID del Personaje a Añadir</label>
+    <input type="number" id="personajeIdInput" class="form-control" [(ngModel)]="personajeId" placeholder="Ingresa el ID del personaje">
+    <button (click)="agregarPersonajePorId()" class="btn btn-primary mt-2">Añadir Personaje</button>
+  </div>
+
+  <!-- Tabla de personajes guardados localmente -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Género</th>
+        <th>Especie</th>
+        <th>Estado</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let personaje of personajes">
+        <td>{{ personaje.id }}</td>
+        <td>{{ personaje.name }}</td>
+        <td>{{ personaje.gender }}</td>
+        <td>{{ personaje.species }}</td>
+        <td>{{ personaje.status }}</td>
+        <td><img [src]="personaje.image" class="img-thumbnail" width="50" alt="Imagen del personaje"></td>
+        <td>
+          <button (click)="borrarPersonaje(personaje)" class="btn btn-danger btn-sm">Eliminar</button>
+          <button (click)="editarPersonaje(personaje.id)" type="button" class="btn btn-secondary">Editar</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
